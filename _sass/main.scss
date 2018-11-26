@@ -1,0 +1,8 @@
+.current {
+    color: green;
+    transition: transform 1s;
+    &:hover{
+        transform: scaleX(2);
+        color: red;
+    }
+}
