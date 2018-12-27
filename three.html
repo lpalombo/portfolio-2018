@@ -6,24 +6,57 @@ title: JS Test
 <script src="assets/js/OrbitControls.js"></script>
 
 <script>
-  var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 
-  var renderer = new THREE.WebGLRenderer();
-  renderer.setSize( window.innerWidth, window.innerHeight );
-  document.body.appendChild( renderer.domElement );
+  var API = {
+    offsetX: 1,
+    offsetY: 1,
+    repeatX: 40,
+    repeatY: 20,
+    rotation: 0, // positive is counter-clockwise
+    centerX: 0,
+    centerY: 0
+  };
 
-  var geometry = new THREE.TorusBufferGeometry( 2, 1, 48, 30 );
-  var material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
-  material.side = THREE.BackSide;
-  var torus = new THREE.Mesh( geometry, material );
-  scene.add( torus );
+  var torus, renderer, scene, camera, controls;
 
-  var controls = new THREE.OrbitControls( camera );
+  var offsetAdd = 0;
 
+  init();
 
-  camera.position.z = 5;
-  controls.update();
+  function init(){
+
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    var geometry = new THREE.TorusBufferGeometry( 2.0, 1.9, 40 , 40 );
+
+    new THREE.TextureLoader().load( 'assets/textures/grid1.png', function ( texture ) {
+      texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+      texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      
+      texture.matrixAutoUpdate = false; // default true; set to false to update texture.matrix manually
+
+      var material = new THREE.MeshBasicMaterial( { map: texture } );
+      material.side = THREE.BackSide;
+      torus = new THREE.Mesh( geometry, material );
+
+      scene.add( torus );
+
+      updateUvTransform();
+
+    } );
+
+    controls = new THREE.OrbitControls( camera );
+
+    camera.position.z = 5;
+    controls.update();
+
+    window.addEventListener( 'resize', onWindowResize, false );
+  }
 
   var animate = function () {
     requestAnimationFrame( animate );
@@ -31,10 +64,43 @@ title: JS Test
     //torus.rotation.x += 0.01;
     //torus.rotation.y += 0.01;
 
+    API.offsetY = offsetAdd;
+    offsetAdd += 0.01;
+    updateUvTransform();
+
     controls.update();
 
     renderer.render( scene, camera );
   };
 
   animate();
+
+  function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+    animate();
+  }
+
+  function updateUvTransform() {
+    var texture = torus.material.map;
+    if ( texture.matrixAutoUpdate === true ) {
+      texture.offset.set( API.offsetX, API.offsetY );
+      texture.repeat.set( API.repeatX, API.repeatY );
+      texture.center.set( API.centerX, API.centerY );
+      texture.rotation = API.rotation; // rotation is around [ 0.5, 0.5 ]
+    } else {
+      // one way...
+      //texture.matrix.setUvTransform( API.offsetX, API.offsetY, API.repeatX, API.repeatY, API.rotation, API.centerX, API.centerY );
+      // another way...
+      texture.matrix
+          .identity()
+          .translate( - API.centerX, - API.centerY )
+          .rotate( API.rotation )					// I don't understand how rotation can preceed scale, but it seems to be required...
+          .scale( API.repeatX, API.repeatY )
+          .translate( API.centerX, API.centerY )
+          .translate( API.offsetX, API.offsetY );
+    }
+  }
 </script>
