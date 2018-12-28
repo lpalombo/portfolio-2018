@@ -5,6 +5,10 @@ title: JS Test
 <script src="assets/js/three.min.js"></script>
 <script src="assets/js/OrbitControls.js"></script>
 
+<div class="textbox">
+  <p class="name">LUC PALOMBO</p>
+</div>
+
 <script>
 
   var API = {
@@ -14,7 +18,8 @@ title: JS Test
     repeatY: 20,
     rotation: 0, // positive is counter-clockwise
     centerX: 0,
-    centerY: 0
+    centerY: 0,
+    rate: 0.005
   };
 
   var torus, renderer, scene, camera, controls;
@@ -64,8 +69,7 @@ title: JS Test
     //torus.rotation.x += 0.01;
     //torus.rotation.y += 0.01;
 
-    API.offsetY = offsetAdd;
-    offsetAdd += 0.01;
+    API.offsetY += API.rate;
     updateUvTransform();
 
     controls.update();
@@ -79,8 +83,6 @@ title: JS Test
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize( window.innerWidth, window.innerHeight );
-
-    animate();
   }
 
   function updateUvTransform() {
