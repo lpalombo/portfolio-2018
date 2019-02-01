@@ -1,0 +1,15 @@
+---
+layout: js
+title: AFrame Test
+extra_js:
+- https://aframe.io/releases/0.8.0/aframe.min.js
+- assets/js/wiggly-plane.js
+- assets/js/shader-lines.js
+- assets/js/perlin.js
+---
+
+<a-scene antialias="true">
+  <a-entity wiggly-plane=""
+            position="0 -50 -200"
+            material="shader: lines; side: double;"></a-entity>
+</a-scene>
