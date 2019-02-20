@@ -1,0 +1,60 @@
+---
+layout: js
+title: It's Me!
+extra_js:
+- assets/js/three.min.js
+- assets/js/OrbitControls.js
+- assets/js/GLTFLoader.js
+- assets/js/perlin.js
+---
+<script>
+
+  var renderer, scene, camera, controls, light;
+
+  init();
+
+  function init(){
+
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+    renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    light = new THREE.HemisphereLight( 0xbbbbff, 0x444422, 5 );
+    light.position.set( 0, 1, 0 );
+    scene.add( light );
+
+    // model
+    var loader = new THREE.GLTFLoader().setPath( 'assets/models/' );
+    loader.load( 'luc_lowpoly.glb', function ( gltf ) {
+      gltf.scene.traverse( function ( child ) {
+      } );
+      scene.add( gltf.scene );
+    }, undefined, function ( e ) {
+      console.error( e );
+    } );
+
+    controls = new THREE.OrbitControls( camera );
+
+    camera.position.z = 5;
+    controls.update();
+
+    window.addEventListener( 'resize', onWindowResize, false );
+  }
+
+  var animate = function () {
+    requestAnimationFrame( animate );
+    controls.update();
+    renderer.render( scene, camera );
+  };
+
+  animate();
+
+  function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+  }
+</script>
