@@ -1,14 +1,38 @@
 ---
 layout: default
-title: Blog
+title: Luc Palombo
 ---
-<h1>Houm</h1>
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-      <p>{{ post.excerpt }}</p>
-    </li>
-  {% endfor %}
-</ul>
+<div>
+  <h1>Luc Palombo</h1>
+
+  <ul>
+      {% for item in site.data.social %}
+        <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+      {% endfor %}
+  </ul>
+</div>
+
+<div>
+  <p>Big ol me goes here</p>
+</div>
+
+<div>
+  <div>grid 1</div>
+  <div>grid 2</div>
+  <div>grid 3</div>
+  <div>grid 4</div>
+  <div>grid 5</div>
+  <div>grid 6</div>
+  <div>
+    <p>Designer and creative technologist based in Toronto, Ontario.</p>
+      
+    <p>Deeply fascinated by new technology, playful experiences, and teaching others</p>
+      
+    <p>Previously marketing at <a href="https://connected.io">Connected</a> and motion designer with <a href="https://rogers.ca">Rogers Media</a></p>
+      
+    <p><a href="/projects">View Projects</a></p>
+  </div>
+</div>
+
+

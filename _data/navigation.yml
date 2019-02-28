@@ -1,8 +1,6 @@
 - name: Home
   link: /
+- name: Projects
+  link: /projects.html
 - name: About
   link: /about.html
-- name: Fuckk
-  link: /fuck.html
-- name: Staff
-  link: /staff.html

@@ -1,0 +1,22 @@
+<footer>
+  <div>
+    <ul>
+      <li><h3>Luc Palombo</h3></li>
+      <li><a href="mailto:lucp.xyz@gmail.com">lucp.xyz@gmail.com</a></li>
+    </ul>
+  </div>
+  <div>
+    <ul>
+      {% for item in site.data.social %}
+        <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div>
+    <ul>
+      {% for item in site.data.navigation %}
+        <li><a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</footer>

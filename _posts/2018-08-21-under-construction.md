@@ -1,6 +1,10 @@
 ---
-layout: post
-author: jill
+layout: project
+title: Under Construction
+tags: [ UI/UX, Development]
+images:
+- assets/images/test1.png
+- assets/images/test2.png
 ---
 An apple is a sweet, edible fruit produced by an apple tree.
 
