@@ -1,8 +1,187 @@
-.current {
-    color: green;
-    transition: transform 1s;
-    &:hover{
-        transform: scaleX(2);
-        color: red;
+$grid-inc: 54px;
+$grid-space: 27px; 
+$primary-color: #de865e;
+$secondary-color: #eadeb5;
+$highlight: #ffffff;
+
+@font-face {
+    font-family: 'VennVF';
+    src: url('../../assets/fonts/VennVF_W.woff2') format('woff2');
+}
+
+html{
+    font-family: "VennVF", sans-serif;
+    background-color: $secondary-color;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+// Weight: 300 - 800 Width: 75 - 125 
+
+@supports (font-variation-settings: normal) {
+    html {
+        font-family: 'VennVF', sans-serif;
+        font-variation-settings: "wdth" 100;
+    }
+    h1{
+        font-size: 4rem;
+        font-variation-settings: "wdth" 125,"wght" 700;
+        letter-spacing: -.2rem;
+        line-height: 3.8rem;
+    }
+    .links{
+        font-size: 1.5rem;
+        font-variation-settings: "wdth" 112.5,"wght" 300;
+        letter-spacing: -.1rem;
+        a{
+            text-decoration: none;
+        }
+    }
+    p{
+        font-size: 1.75em;
+        font-variation-settings: "wdth" 112.5,"wght" 350;
+        letter-spacing: -.05rem;
+        a{
+            font-variation-settings: "wdth" 112.5,"wght" 700;
+            text-decoration: none;
+        }
+        a.underline{
+            text-decoration: underline;
+        }
+    }
+    h2{
+        font-size: 1.75em;
+        font-variation-settings: "wdth" 112.5,"wght" 350;
+        letter-spacing: -.05rem;
+        margin-bottom: 0px;
+        > a{
+            font-variation-settings: "wdth" 112.5,"wght" 700;
+            text-decoration: none;
+            line-height: 1rem;
+        }
+        > a.underline{
+            text-decoration: underline;
+        }
+    }
+    .post{
+        p{
+            font-variation-settings: "wdth" 100,"wght" 350;
+            letter-spacing: -.025rem;
+            line-height: 2.1rem;
+        }
+    }
+    .pages{
+        line-height: .3rem;
+        p{
+            font-variation-settings: "wdth" 112.5,"wght" 700;
+        }
+        a{
+            font-variation-settings: "wdth" 112.5,"wght" 350;
+            text-decoration: underline;
+        }
+    }
+    .tags{
+        font-size: 1.25rem;
+        font-variation-settings: "wdth" 100,"wght" 300;
+    }
+    .navlink{
+        margin-left: 20px;
+        &.current{
+            font-variation-settings: "wdth" 112.5,"wght" 700;
+        }
     }
 }
+
+.hero-section{
+    height: 100vh;
+    width: 100%;
+    background-color: $primary-color;
+    color: $highlight;
+}
+
+.light-section{
+    background-color: $secondary-color;
+    padding: $grid-inc 0;
+}
+
+.container{
+    width: 1274px;
+    margin: 0 auto;
+    &.hero{
+        height: 100%;
+        padding-top: $grid-inc;
+        padding-bottom: 164px;
+    }
+    &.nav{
+        padding-top: $grid-inc;
+        padding-right: $grid-space;
+        
+    }
+}
+
+.flex-wrapper{
+    display: flex;
+    &.column{
+        flex-direction: column;
+    }
+    &.fullheight{
+        height: 100%;
+    }
+    &.alignbottom{
+        flex-grow: 1;
+        align-items: flex-end;
+    }
+    &.marginbottom{
+        margin-bottom: $grid-inc;
+    }
+    &.footer{
+        border-top: 2px solid $primary-color;
+        padding-top: $grid-inc;
+    }
+    &.right{
+        justify-content: flex-end;
+    }
+}
+.flex-grow{
+    flex-grow: 1;
+    &.none{
+        flex-grow: 0;
+    }
+}
+
+.flex-column{
+    margin: 0 $grid-space;
+
+    &.square{
+        align-self: flex-start;
+        &:after{
+            content:"";
+            display: block;
+            padding-bottom: 100%;
+            
+        }
+    }
+    &._50{
+        width: calc(50% - #{$grid-inc});
+    }
+    &._25{
+        width: calc(25% - #{$grid-inc});
+    }
+
+    &.highlightbox{
+        background-color: $highlight;
+    }
+}
+
+
+
+.adjustments{
+    &.notopmargin{
+        margin-top:0px;
+    }
+}
+

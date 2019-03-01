@@ -7,30 +7,28 @@ title: Projects
 <div>
   <ul>
     {% for project in site.posts %}
-      <li>
+    <li>
+      <div>
+        <p class="tags">
+          {% if project.tags.size > 0 %}{{ project.tags | sort | join: " - " }}{% endif %}
+        </p>
+        <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
+        <p class="adjustments notopmargin">{{ project.excerpt }}</p>
+      </div>
+      <div>
         <div>
-          <p>
-            {% if post.tags.size > 0 %}
-              {{ post.tags | sort | join: " - " }}
-            {% endif %}
-          </p>
-          <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
-          <p>{{ project.excerpt }}</p>
+          {% for image in project.images %}
+          <img src="{{ image }}" />
+          {% endfor %}
         </div>
-        <div>
-          <div>
-              {% for image in project.images %}
-                <img src="{{ image.src }}" />
-              {% endfor %}
-          </div>
-        </div>
-      </li>
+      </div>
+    </li>
     {% endfor %}
   </ul>
 </div>
 
 <div>
-  <h2>Experiments</h2>
+  <h2><a href="/experiments.html">Experiments</a></h2>
   <p>Projects created to experiment with new technology</p>
   <div>p1</div>
   <div>p2</div>

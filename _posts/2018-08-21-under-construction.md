@@ -6,10 +6,8 @@ images:
 - assets/images/test1.png
 - assets/images/test2.png
 ---
-An apple is a sweet, edible fruit produced by an apple tree.
+PrinterBoy is a hypothetical product that playfully bridges the gap between the most fun aspects of the digital and print worlds.
 
-Apple trees are cultivated worldwide, and are the most widely grown species in
-the genus Malus. The tree originated in Central Asia, where its wild ancestor,
-Malus sieversii, is still found today. Apples have been grown for thousands of
-years in Asia and Europe, and were brought to North America by European
-colonists.
+It takes the form of a small internet-connected thermal receipt printer that spits out a curated feed of paper-centric toys and games every single day. 
+
+A companion app lets you treat PrinterBoy like an instant printer, allowing you to send customized selfies and images to your friends around the globe. PrinterBoy is designed to be a system that can grow and adapt to a community of developers and makers.
