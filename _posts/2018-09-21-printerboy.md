@@ -1,7 +1,7 @@
 ---
 layout: project
-title: Under Construction
-tags: [ UI/UX, Development]
+title: PrinterBoy
+tags: [ UI/UX, Branding]
 images:
 - assets/images/test1.png
 - assets/images/test2.png

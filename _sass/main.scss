@@ -3,6 +3,9 @@ $grid-space: 27px;
 $primary-color: #de865e;
 $secondary-color: #eadeb5;
 $highlight: #ffffff;
+$true-width: 1240px;
+$width: calc(#{$true-width} + #{$grid-inc});
+$link-transition: .2s;
 
 @font-face {
     font-family: 'VennVF';
@@ -11,7 +14,7 @@ $highlight: #ffffff;
 
 html{
     font-family: "VennVF", sans-serif;
-    background-color: $secondary-color;
+    //background-color: $secondary-color;
 }
 
 ul{
@@ -32,22 +35,38 @@ ul{
         font-variation-settings: "wdth" 125,"wght" 700;
         letter-spacing: -.2rem;
         line-height: 3.8rem;
+        color: $primary-color;
+        &.light{
+            color: $highlight;
+        }
     }
     .links{
         font-size: 1.5rem;
         font-variation-settings: "wdth" 112.5,"wght" 300;
         letter-spacing: -.1rem;
+        color: $primary-color;
         a{
             text-decoration: none;
+            color: $primary-color;
+            transition: opacity #{$link-transition};
+            &:hover{
+                opacity: .6;
+            }
+        }
+        &.light a{
+            color: $highlight;
         }
     }
     p{
         font-size: 1.75em;
         font-variation-settings: "wdth" 112.5,"wght" 350;
         letter-spacing: -.05rem;
+        margin-bottom: 1.75rem;
+        color: $primary-color;
         a{
             font-variation-settings: "wdth" 112.5,"wght" 700;
             text-decoration: none;
+            color: $primary-color;
         }
         a.underline{
             text-decoration: underline;
@@ -59,9 +78,14 @@ ul{
         letter-spacing: -.05rem;
         margin-bottom: 0px;
         > a{
+            color: $primary-color;
             font-variation-settings: "wdth" 112.5,"wght" 700;
             text-decoration: none;
             line-height: 1rem;
+            transition: opacity #{$link-transition};
+            &:hover{
+                opacity: 0.6;
+            }
         }
         > a.underline{
             text-decoration: underline;
@@ -87,11 +111,13 @@ ul{
     .tags{
         font-size: 1.25rem;
         font-variation-settings: "wdth" 100,"wght" 300;
+        margin-bottom: .8rem;
     }
     .navlink{
-        margin-left: 20px;
+        margin-left: 15px;
         &.current{
-            font-variation-settings: "wdth" 112.5,"wght" 700;
+            font-variation-settings: "wdth" 112.5,"wght" 500;
+            letter-spacing: -.05rem;
         }
     }
 }
@@ -108,9 +134,16 @@ ul{
     padding: $grid-inc 0;
 }
 
+.highlight-section{
+    background-color: $highlight;
+}
+
 .container{
-    width: 1274px;
+    width: $width;
     margin: 0 auto;
+    &.regular{
+        width: $true-width;
+    }
     &.hero{
         height: 100%;
         padding-top: $grid-inc;
@@ -121,12 +154,18 @@ ul{
         padding-right: $grid-space;
         
     }
+    &.reel{
+        padding: $grid-inc 0;
+    }
 }
 
 .flex-wrapper{
     display: flex;
     &.column{
         flex-direction: column;
+    }
+    &.rowreverse{
+        flex-direction:row-reverse;
     }
     &.fullheight{
         height: 100%;
@@ -138,14 +177,24 @@ ul{
     &.marginbottom{
         margin-bottom: $grid-inc;
     }
+    &.margintop{
+        margin-top: $grid-inc;
+    }
+    &.fullwidth{
+        width: 100%;
+    }
     &.footer{
-        border-top: 2px solid $primary-color;
-        padding-top: $grid-inc;
+        //border-top: 2px solid $primary-color;
+        padding: $grid-inc 0;
     }
     &.right{
         justify-content: flex-end;
     }
+    &.regularwidth{
+        padding: 0 $grid-space;
+    }
 }
+
 .flex-grow{
     flex-grow: 1;
     &.none{
@@ -155,7 +204,9 @@ ul{
 
 .flex-column{
     margin: 0 $grid-space;
-
+    &.nomargin{
+        margin: 0;
+    }
     &.square{
         align-self: flex-start;
         &:after{
@@ -171,17 +222,59 @@ ul{
     &._25{
         width: calc(25% - #{$grid-inc});
     }
+    &._33{
+        width: calc(33.333% - #{$grid-inc});
+    }
+    &._66{
+        width: calc(66.666% - #{$grid-inc});
+    }
+    &._45{
+        width: calc(45% - #{$grid-inc});
+    }
+    &.stretch{
+        flex-grow: 1;
+        &:after{
+            content:"";
+        }
+    }
 
     &.highlightbox{
         background-color: $highlight;
     }
 }
 
+.smallbox{
+    background-color: $secondary-color;
+    flex-basis: 71.45%;
+    &:after{
+        content:"";
+        display: block;
+        
+        padding-bottom: 100%;
+    }
+}
 
+.image-stack{
+    position:relative;
+    width: 100%;
+    padding-bottom: 66.66%;
+    background-color: $secondary-color;
+    & > div{
+        position: absolute;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        left: 0; right: 0; top: 0; bottom: 0;
+    }
+}
 
 .adjustments{
     &.notopmargin{
         margin-top:0px;
+    }
+    &.aboutmargin{
+        margin-top: calc(#{$grid-inc}*2);
+        margin-bottom: $grid-inc;
     }
 }
 
