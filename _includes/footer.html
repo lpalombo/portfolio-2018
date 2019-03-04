@@ -1,20 +1,20 @@
 <footer class="links">
   <div class="container">
-    <div class="flex-wrapper footer">
-      <div class="flex-column _25">
+    <div class="flex-wrapper footer m-col">
+      <div class="flex-column _25 m-marginbelow">
         <ul>
           <li>Luc Palombo</li>
           <li><a href="mailto:lucp.xyz@gmail.com">lucp.xyz@gmail.com</a></li>
         </ul>
       </div>
-      <div class="flex-column _25">
+      <div class="flex-column _25 m-marginbelow">
         <ul>
           {% for item in site.data.social %}
             <li><a href="{{ item.link }}">{{ item.name }}</a></li>
           {% endfor %}
         </ul>
       </div>
-      <div class="flex-column _25">
+      <div class="flex-column _25 m-marginbelow">
         <ul>
           {% for item in site.data.navigation %}
             <li><a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a></li>

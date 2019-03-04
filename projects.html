@@ -5,14 +5,16 @@ title: Projects
 <div class="highlight-section">
   {% include navigation.html %}
 
-  <div class="container regular">
-    <h1>Projects</h1>
+  <div class="container">
+      <div class="flex-column">
+          <h1>Projects</h1>
+      </div>
   </div>
 
   <div class="container">
     <ul>
       {% for project in site.posts %}
-      <li class="flex-wrapper marginbottom margintop">
+      <li class="flex-wrapper marginbottom margintop m-col">
         <div class="flex-column _50">
           <p class="tags">
             {% if project.tags.size > 0 %}{{ project.tags | sort | join: " - " }}{% endif %}
@@ -32,7 +34,7 @@ title: Projects
     </ul>
   </div>
 </div>
-<div class="light-section">
+<div class="light-section padding">
   <div class="container">
     <div class="flex-column">
       <h2><a href="/experiments.html">Experiments</a></h2>
@@ -51,7 +53,7 @@ title: Projects
       <div class="flex-column _66">
           <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://player.vimeo.com/video/203412336' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
       </div>
-      <div class="flex-column _33">
+      <div class="flex-column _33 m-hide">
         <div class="flex-wrapper fullheight alignbottom">
           <div class="flex-wrapper fullwidth rowreverse">
             <div class="smallbox"></div>

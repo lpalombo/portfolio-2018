@@ -4,40 +4,44 @@ title: Luc Palombo
 ---
 
 <div class="hero-section">
-  {% include navigation-light.html %}
-  <div class="container hero">
-    <div class="flex-wrapper fullheight">
-      <div class="flex-column _50">
-        <div class="flex-wrapper column fullheight">
-          <h1 class="light">Luc Palombo</h1>
-          <div class="flex-wrapper alignbottom">
-            <ul class="links light">
-                {% for item in site.data.social %}
-                  <li><a href="{{ item.link }}">{{ item.name }}</a></li>
-                {% endfor %}
-            </ul>
+  <div class="flex-wrapper column fullheight">
+    {% include navigation-light.html %}
+    <div class="flex-column nomargin stretch">
+      <div class="container hero">
+        <div class="flex-wrapper fullheight m-col">
+          <div class="flex-column _50">
+            <div class="flex-wrapper column fullheight">
+              <h1 class="light">Luc Palombo</h1>
+              <div class="flex-wrapper alignbottom">
+                <ul class="links light">
+                    {% for item in site.data.social %}
+                      <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+                    {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-column _50 highlightbox">
+            
           </div>
         </div>
-      </div>
-
-      <div class="flex-column _50 highlightbox">
-        
       </div>
     </div>
   </div>
 </div>
 
-<div class="light-section">
+<div class="light-section padding">
   <div class="container">
     <div class="flex-wrapper marginbottom">
-      <div class="flex-column _25 highlightbox square"></div>
-      <div class="flex-column _25 highlightbox square"></div>
-      <div class="flex-column _25 highlightbox square"></div>
-      <div class="flex-column _25 highlightbox square"></div>
+      <div class="flex-column _25 highlightbox square m-hide"></div>
+      <div class="flex-column _25 highlightbox square m-hide"></div>
+      <div class="flex-column _25 highlightbox square m-hide"></div>
+      <div class="flex-column _25 highlightbox square m-hide"></div>
     </div>
     <div class="flex-wrapper marginbottom">
-      <div class="flex-column _25 highlightbox square"></div>
-      <div class="flex-column _25 highlightbox square"></div>
+      <div class="flex-column _25 highlightbox square m-hide"></div>
+      <div class="flex-column _25 highlightbox square m-hide"></div>
       <div class="flex-column _50"><p>Designer and creative technologist based in Toronto, Ontario.</p>
       
         <p>Deeply fascinated by new technology, playful experiences, and teaching others</p>

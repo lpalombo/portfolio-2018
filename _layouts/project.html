@@ -3,20 +3,39 @@ layout: default
 ---
 <div class="highlight-section">
     {% include navigation.html %}
-    <h1>{{ page.title }}</h1>
-
-    <div class="post">
-        {{ content }}
+    <div class="container">
+        <div class="flex-column">
+            <h1>{{ page.title }}</h1>
+        </div>
     </div>
 
-    <div class="pages">
-        <div>
-            <p>Previous Project</p>
-            <p><a href="/prev">Under Construction</a></p>
+
+    <div class="post">
+        <div class="container">
+                {{ content }}
         </div>
-        <div>
-            <p>Next Project</p>
-            <p><a href="/prev">YSDN 2017</a></p>
+    </div>
+    
+    <div class="container">
+        <div class="flex-wrapper">
+            <div class="flex-column _50">
+                <div class="pages">
+                    {% if page.previous.url %}
+                    <p>Previous Project</p>
+                    <p><a href="{{page.previous.url}}">{{page.previous.title}}</a></p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="flex-column _50">
+                <div class="flex-wrapper rowreverse">
+                    <div class="pages rightalign">
+                        {% if page.next.url %}
+                        <p>Next Project</p>
+                        <p><a href="{{page.next.url}}">{{page.next.title}}</a></p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     {% include footer.html %}

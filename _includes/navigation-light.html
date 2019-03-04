@@ -1,6 +1,6 @@
 <nav class="links light">
   <div class="container nav">
-    <div class="flex-wrapper right">
+    <div class="flex-wrapper right m-left">
     {% for item in site.data.navigation %}
       <a href="{{ item.link }}" class="navlink {% if page.url == item.link %}current{% endif %}">{{ item.name }}</a>
     {% endfor %}
