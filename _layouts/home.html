@@ -4,10 +4,16 @@
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    {% for js_name in page.extra_js %}
+      <script src="{{ js_name }}"></script>
+    {% endfor %}
     {% feed_meta %}
     {% seo %}
   </head>
   <body>
       {{ content }}
+      {% for js_name in page.body_js %}
+      <script src="{{ js_name }}"></script>
+      {% endfor %}
   </body>
 </html>

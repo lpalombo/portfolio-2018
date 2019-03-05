@@ -4,7 +4,8 @@ $primary-color: #de865e;
 $secondary-color: #eadeb5;
 $highlight: #ffffff;
 $true-width: 1240px;
-$width: calc(#{$true-width} + #{$grid-inc});
+//$width: calc(#{$true-width} + #{$grid-inc});
+$width: 1240px;
 $link-transition: .2s;
 
 
@@ -321,6 +322,7 @@ figure{
     }
     &.highlightbox{
         background-color: $highlight;
+        //position: relative;
     }
     @include md{
         &._50{
@@ -383,4 +385,14 @@ figure{
             margin: 0;
         }
     }
+}
+
+#luc-home{
+    //position: absolute;
+    //top: 0px; bottom: 0px; right: 0px; left: -#{$grid-inc};
+    display: block;
+    width: 150%;
+    height: 100%;
+    float: right;
+    
 }
