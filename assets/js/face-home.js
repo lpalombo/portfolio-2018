@@ -77,6 +77,9 @@ function init() {
 function resizeRendererToDisplaySize(renderer) {
   var canvas = renderer.domElement;
   var pixelRatio = window.devicePixelRatio;
+  var wrapper = document.getElementById( 'luc-wrapper' );
+  // var width = wrapper.clientWidth * pixelRatio;
+  // var height = wrapper.clientHeight * pixelRatio;
   var width = canvas.clientWidth * pixelRatio;
   var height = canvas.clientHeight * pixelRatio;
   var needResize = canvas.width !== width || canvas.height !== height;
@@ -95,7 +98,12 @@ var animate = function () {
 };
 
 function render() {
-  
+  if (resizeRendererToDisplaySize(renderer)) {
+    var canvas = renderer.domElement;
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    console.log("resizing: "+canvas.clientWidth+" "+canvas.clientHeight);
+    camera.updateProjectionMatrix();
+  }
   if (materialShader) {
     materialShader.uniforms.time.value = performance.now() / 1000;
   }
@@ -106,10 +114,11 @@ function render() {
 animate();
 
 function onWindowResize() {
+  //document.getElementById( 'luc-home' ).style.display = "none";
   if (resizeRendererToDisplaySize(renderer)) {
     var canvas = renderer.domElement;
     camera.aspect = canvas.clientWidth / canvas.clientHeight;
-    console.log("resizing: "+canvas.clientWidth+" "+canvas.clientHeight);
+    
     camera.updateProjectionMatrix();
   }
 }

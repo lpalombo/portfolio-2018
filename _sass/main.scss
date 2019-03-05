@@ -322,7 +322,8 @@ figure{
     }
     &.highlightbox{
         background-color: $highlight;
-        //position: relative;
+        display: block;
+        position: relative;
     }
     @include md{
         &._50{
@@ -387,12 +388,14 @@ figure{
     }
 }
 
+#luc-wrappy{
+    position: absolute;
+    top: 0px; bottom: 0px; right: 0px; left: -200px;
+
+}
+
 #luc-home{
-    //position: absolute;
-    //top: 0px; bottom: 0px; right: 0px; left: -#{$grid-inc};
     display: block;
-    width: 150%;
+    width: 100%;
     height: 100%;
-    float: right;
-    
 }
