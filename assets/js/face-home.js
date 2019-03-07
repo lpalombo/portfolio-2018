@@ -2,6 +2,10 @@ var renderer, scene, camera, controls, light, container;
 
 var materialShader;
 
+var heroCameraPos = {
+  y: 100
+};
+
 init();
 
 function init() {
@@ -9,12 +13,28 @@ function init() {
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
 
-  container = document.getElementById( 'luc-home' );
+  container = document.getElementById('luc-home');
   //document.body.appendChild( container );
 
-  renderer = new THREE.WebGLRenderer({canvas: container,alpha: true});
+  renderer = new THREE.WebGLRenderer({
+    canvas: container,
+    alpha: true
+  });
   //renderer.setSize(container.innerWidth, container.innerHeight);
   //container.appendChild(renderer.domElement);
+
+  var manager = new THREE.LoadingManager();
+  manager.onStart = function (url, itemsLoaded, itemsTotal) {
+    console.log('Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
+  };
+  manager.onLoad = function () {
+    console.log('Loading complete!');
+    animateHero();
+  };
+  manager.onProgress = function (url, itemsLoaded, itemsTotal) {
+    console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
+  };
+
 
   light = new THREE.HemisphereLight(0xffffff, 0x444422, 1.2);
   light.position.set(0, 1, 0);
@@ -22,7 +42,7 @@ function init() {
 
   var lucMaterial = new THREE.MeshPhongMaterial();
 
-  var texture = new THREE.TextureLoader().load("assets/textures/NewTexture.jpg", function (texture) {
+  var texture = new THREE.TextureLoader(manager).load("assets/textures/NewTexture.jpg", function (texture) {
     lucMaterial.map = texture;
   });
 
@@ -49,7 +69,7 @@ function init() {
   };
 
   // model
-  var loader = new THREE.GLTFLoader().setPath('assets/models/');
+  var loader = new THREE.GLTFLoader(manager).setPath('assets/models/');
   loader.load('luc_lowpoly.glb', function (gltf) {
     gltf.scene.traverse(function (child) {
       if (child.isMesh) {
@@ -68,7 +88,7 @@ function init() {
   //controls = new THREE.OrbitControls(camera);
 
   camera.position.z = 25;
-  camera.position.y = 8;
+  camera.position.y = heroCameraPos.y;
   //controls.update();
 
   window.addEventListener('resize', onWindowResize, false);
@@ -77,7 +97,7 @@ function init() {
 function resizeRendererToDisplaySize(renderer) {
   var canvas = renderer.domElement;
   var pixelRatio = window.devicePixelRatio;
-  var wrapper = document.getElementById( 'luc-wrapper' );
+  var wrapper = document.getElementById('luc-wrapper');
   // var width = wrapper.clientWidth * pixelRatio;
   // var height = wrapper.clientHeight * pixelRatio;
   var width = canvas.clientWidth * pixelRatio;
@@ -98,10 +118,11 @@ var animate = function () {
 };
 
 function render() {
+  camera.position.y = heroCameraPos.y;
   if (resizeRendererToDisplaySize(renderer)) {
     var canvas = renderer.domElement;
     camera.aspect = canvas.clientWidth / canvas.clientHeight;
-    console.log("resizing: "+canvas.clientWidth+" "+canvas.clientHeight);
+    console.log("resizing: " + canvas.clientWidth + " " + canvas.clientHeight);
     camera.updateProjectionMatrix();
   }
   if (materialShader) {
@@ -118,7 +139,26 @@ function onWindowResize() {
   if (resizeRendererToDisplaySize(renderer)) {
     var canvas = renderer.domElement;
     camera.aspect = canvas.clientWidth / canvas.clientHeight;
-    
+
     camera.updateProjectionMatrix();
   }
+}
+
+function animateHero(){
+  var tl = anime.timeline({
+    easing: 'easeOutExpo',
+    duration: 2000,
+    delay: 1000
+  });
+
+  tl.add({
+    targets: '#hero',
+    opacity: [0, 1],
+  });
+
+  tl.add({
+    targets: heroCameraPos,
+    easing: 'easeOutElastic(5, 1)',
+    y: 8,
+  }, '-=800');
 }

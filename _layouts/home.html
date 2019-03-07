@@ -11,7 +11,9 @@
     {% seo %}
   </head>
   <body>
-      {{ content }}
+      <div id="barba-wrapper">
+        <div class="barba-container">{{ content }}</div>
+      </div>
       {% for js_name in page.body_js %}
       <script src="{{ js_name }}"></script>
       {% endfor %}

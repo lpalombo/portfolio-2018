@@ -1,0 +1,26 @@
+{
+  "name": "portfolio-2018",
+  "version": "1.0.0",
+  "description": "My portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lpalombo/portfolio-2018.git"
+  },
+  "keywords": [
+    "portfolio",
+    "graphic",
+    "design",
+    "threejs"
+  ],
+  "author": "Luc Palombo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lpalombo/portfolio-2018/issues"
+  },
+  "homepage": "https://github.com/lpalombo/portfolio-2018#readme",
+  "devDependencies": {}
+}

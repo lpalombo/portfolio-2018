@@ -8,8 +8,13 @@
     {% seo %}
   </head>
   <body>
-        {% include navigation.html %}
-        {{ content }}
-        {% include navigation.html %}
+      <div id="barba-wrapper">
+        <div class="barba-container">
+            {% include navigation.html %}
+            {{ content }}
+            {% include navigation.html %}
+        </div>
+      </div>
+        
   </body>
 </html>
