@@ -7,6 +7,7 @@ extra_js:
 - assets/js/GLTFLoader.js
 - assets/js/perlin.js
 - assets/js/anime.min.js
+- assets/js/noframework.waypoints.min.js
 
 body_js:
 - assets/js/face-home.js
@@ -15,6 +16,7 @@ body_js:
 <div id="loader">
   <div id="lilbox"></div>
 </div>
+<div class="preload-wrapper">
 <div class="hero-section">
   <div id="hero" class="flex-wrapper column fullheight">
     {% include navigation-light.html %}
@@ -46,28 +48,80 @@ body_js:
 </div>
 
 <div class="light-section padding">
-  <div class="container">
-    <div class="flex-wrapper marginbottom">
-      <div class="flex-column _25 highlightbox square m-hide"></div>
-      <div class="flex-column _25 highlightbox square m-hide"></div>
-      <div class="flex-column _25 highlightbox square m-hide"></div>
-      <div class="flex-column _25 highlightbox square m-hide"></div>
-    </div>
-    <div class="flex-wrapper marginbottom">
-      <div class="flex-column _25 highlightbox square m-hide"></div>
-      <div class="flex-column _25 highlightbox square m-hide"></div>
-      <div class="flex-column _50"><p>Designer and creative technologist based in Toronto, Ontario.</p>
+  <div class="container" id="windows">
+    <div class="window-parent">
+      <div class="window-grid">
+        <img src="assets/images/me.png" id="window-me1"/>
+        <img src="assets/images/me.png" id="window-me2" />
+        <div class="window-row">
+            <div class="window-col open">
+              <div class="window-openbox square"></div>
+            </div>
+            <div class="window-col closed"></div>
+            <div class="window-col open">
+              <div class="window-openbox square"></div>
+            </div>
+            <div class="window-col closed"></div>
+            <div class="window-col open">
+              <div class="window-openbox square"></div>
+            </div>
+            <div class="window-col closed"></div>
+            <div class="window-col open">
+              <div class="window-openbox square"></div>
+            </div>
+        </div>
+        <div class="window-line"></div>
+        <div class="window-row">
+            <div class="window-col open">
+              <div class="window-openbox square"></div>
+              <div class="window-openbox fill"></div>
+            </div>
+            <div class="window-col closed"></div>
+            <div class="window-col open">
+                <div class="window-openbox square"></div>
+                <div class="window-openbox fill"></div>
+            </div>
+            <div class="window-col closed"></div>
+            <div class="window-col text">
+              <p>Designer and creative technologist based in Toronto, Ontario.</p>
       
-        <p>Deeply fascinated by new technology, playful experiences, and teaching others</p>
-          
-        <p>Previously marketing at <a href="https://connected.io">Connected</a> and motion designer with <a href="https://rogers.ca">Rogers Media</a></p>
-          
-        <p><a href="/projects" class="underline">View Projects</a></p>
+              <p>Deeply fascinated by new technology, playful experiences, and teaching others</p>
+                
+              <p>Previously marketing at <a href="https://connected.io">Connected</a> and motion designer with <a href="https://rogers.ca">Rogers Media</a></p>
+                
+              <p><a href="/projects" class="underline">View Projects</a></p>
+            </div>
+        </div>
       </div>
     </div>
   </div>
   {% include footer.html %}
 </div>
+</div>
+
+<script>
+  var waypoint = new Waypoint({
+    element: document.getElementById('windows'),
+    handler: function(direction) {
+      console.log("hey");
+      anime({
+        targets: '#window-me1',
+        left: '-10%',
+        easing: 'easeOutElastic(5, 1)',
+        rotate: 130,
+        duration: 2000
+      });
+      anime({
+        targets: '#window-me2',
+        top: '10%',
+        easing: 'easeOutElastic(5, 1)',
+        duration: 2000,
+        delay: 500
+      });
+    }
+    , offset: '25%'
+  });
+</script>
 
 
 

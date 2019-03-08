@@ -145,6 +145,8 @@ function onWindowResize() {
 }
 
 function animateHero(){
+
+
   var tl = anime.timeline({
     easing: 'easeOutExpo',
     duration: 2000,
@@ -155,7 +157,9 @@ function animateHero(){
     opacity: 0,
     duration: 300,
     complete: function(anim) {
-      document.querySelector("#loader").remove();
+      document.querySelector(".preload-wrapper").classList.remove('preload-wrapper');
+      var thingToRemove = document.querySelectorAll("#loader")[0];
+      thingToRemove.parentNode.removeChild(thingToRemove);
     }
   });
 

@@ -9,6 +9,18 @@ $width: 1294px;
 $link-transition: .2s;
 
 
+@mixin keyframes( $animation_name ){
+    @-webkit-keyframes #{$animation_name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation_name} {
+        @content;
+    }
+    @keyframes #{$animation_name} {
+        @content;
+    }
+}
+
 // Small tablets (portrait view)
 $screen-sm-min: 768px;
 
@@ -295,8 +307,7 @@ figure{
         &:after{
             content:"";
             display: block;
-            padding-bottom: 100%;
-            
+            padding-bottom: 100%;   
         }
     }
     &._50{
@@ -347,11 +358,78 @@ figure{
         }
     }
 }
+.window-grid{   
+    background: $highlight;   
+}
+.window-parent{
+    margin: 0 $grid-space;
+    overflow: hidden;
+    position: relative;
+}
+.window-row{
+    display: flex;
+}
+.window-line{
+    height: $grid-inc;
+    background: $secondary-color;
+    position: relative;
+    z-index: 20;
+}
+.window-col{
+    position: relative;
+    z-index: 20;
+    &.open{
+        //width: calc(#{$grid-inc}*5);
+        //align-self: flex-start;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    &.closed{
+        //flex-grow: 1;
+        width: $grid-inc;
+        background-color: $secondary-color;
+    }
+    &.text{
+        overflow: visible;
+        width: calc(50% - #{$grid-space});
+        background-color: $secondary-color;
+    }
+}
+.window-openbox{
+    &.square{
+        width: 100%;
+        padding-bottom: 100%;
+    }
+    &.fill{
+        flex-grow: 1;
+        background-color: $secondary-color;
+    }
+}
+#window-me1{
+    position: absolute;
+    left: -100%;
+    top: -100px;
+    width: 600px;
+}
+#window-me2{
+    position: absolute;
+    right: -20%;
+    top: 100%;
+    width: 500px;
+}
+
+.preload-wrapper{
+    height: 100vh;
+    overflow-x: hidden; 
+    overflow-y: auto;
+}
+
 #hero{
     opacity: 0;
 }
 #loader{
-    position: absolute;
+    position: fixed;
     z-index: 999;
     top: 0; bottom: 0; left: 0; right: 0;
     background-color: $primary-color;
@@ -363,7 +441,18 @@ figure{
 #lilbox{
     width: 15px;
     height: 15px;
+    display: block;
     background-color: $secondary-color;
+    animation: rotate 2s linear infinite;
+}
+
+@include keyframes(rotate){
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(369deg);
+    }
 }
 
 .smallbox{
@@ -408,7 +497,7 @@ figure{
 
 #luc-wrappy{
     position: absolute;
-    top: 0px; bottom: 0px; right: 0px; left: -500px;
+    top: 0px; bottom: 0px; right: 0px; left: -300px;
 
 }
 
