@@ -1,9 +1,12 @@
 var renderer, scene, camera, controls, light, container;
 
+var meObject;
+
 var materialShader;
 
-var heroCameraPos = {
-  y: 100
+var heroPos = {
+  posY: 100,
+  rotY: 0
 };
 
 init();
@@ -40,7 +43,7 @@ function init() {
   light.position.set(0, 1, 0);
   scene.add(light);
 
-  var lucMaterial = new THREE.MeshPhongMaterial();
+  var lucMaterial = new THREE.MeshBasicMaterial();
 
   var texture = new THREE.TextureLoader(manager).load("assets/textures/NewTexture.jpg", function (texture) {
     lucMaterial.map = texture;
@@ -60,8 +63,7 @@ function init() {
         'float c = cos( theta );',
         'float s = sin( theta );',
         'mat3 m = mat3( c, 0, s, 0, 1, 0, -s, 0, c );',
-        'vec3 transformed = vec3( position ) * m;',
-        'vNormal = vNormal * m;'
+        'vec3 transformed = vec3( position ) * m;'
       ].join('\n')
     );
     materialShader = shader;
@@ -73,6 +75,7 @@ function init() {
   loader.load('luc_lowpoly.glb', function (gltf) {
     gltf.scene.traverse(function (child) {
       if (child.isMesh) {
+        meObject = child;
         child.material = lucMaterial;
         child.rotation.z = 6.;
         //child.position.y = - 50;
@@ -88,7 +91,7 @@ function init() {
   //controls = new THREE.OrbitControls(camera);
 
   camera.position.z = 25;
-  camera.position.y = heroCameraPos.y;
+  camera.position.y = heroPos.y;
   //controls.update();
 
   window.addEventListener('resize', onWindowResize, false);
@@ -118,7 +121,8 @@ var animate = function () {
 };
 
 function render() {
-  camera.position.y = heroCameraPos.y;
+  camera.position.y = heroPos.posY;
+  meObject.rotation.z = heroPos.rotY;
   if (resizeRendererToDisplaySize(renderer)) {
     var canvas = renderer.domElement;
     camera.aspect = canvas.clientWidth / canvas.clientHeight;
@@ -146,7 +150,6 @@ function onWindowResize() {
 
 function animateHero(){
 
-
   var tl = anime.timeline({
     easing: 'easeOutExpo',
     duration: 2000,
@@ -170,8 +173,9 @@ function animateHero(){
   });
 
   tl.add({
-    targets: heroCameraPos,
-    easing: 'easeOutElastic(5, 1)',
-    y: 8,
+    targets: heroPos,
+    easing: 'easeOutElastic(10, 20)',
+    posY: 10,
+    rotY: (3.141592 * 4)
   }, '-=500');
 }
