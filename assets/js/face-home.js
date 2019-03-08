@@ -148,17 +148,26 @@ function animateHero(){
   var tl = anime.timeline({
     easing: 'easeOutExpo',
     duration: 2000,
-    delay: 1000
+  });
+
+  tl.add({
+    targets: '#loader',
+    opacity: 0,
+    duration: 300,
+    complete: function(anim) {
+      document.querySelector("#loader").remove();
+    }
   });
 
   tl.add({
     targets: '#hero',
     opacity: [0, 1],
+    duration: 800
   });
 
   tl.add({
     targets: heroCameraPos,
     easing: 'easeOutElastic(5, 1)',
     y: 8,
-  }, '-=800');
+  }, '-=500');
 }

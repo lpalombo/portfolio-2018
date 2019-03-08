@@ -347,6 +347,24 @@ figure{
         }
     }
 }
+#hero{
+    opacity: 0;
+}
+#loader{
+    position: absolute;
+    z-index: 999;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-color: $primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+#lilbox{
+    width: 15px;
+    height: 15px;
+    background-color: $secondary-color;
+}
 
 .smallbox{
     background-color: $secondary-color;
