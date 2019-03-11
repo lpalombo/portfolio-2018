@@ -4,6 +4,8 @@ var meObject;
 
 var materialShader;
 
+var jiggleDivider = 0, jiggleInc = 0, jiggleTime = 0, currentJiggle=0; 
+
 var heroPos = {
   posY: 100,
   rotY: 0
@@ -54,16 +56,26 @@ function init() {
     shader.uniforms.time = {
       value: 0
     };
+    shader.uniforms.speed = {
+      value: 0
+    };
 
-    shader.vertexShader = 'uniform float time;\n' + shader.vertexShader;
+    shader.vertexShader = 'uniform float time;\n uniform float speed; \n' + shader.vertexShader;
     shader.vertexShader = shader.vertexShader.replace(
       '#include <begin_vertex>',
       [
-        'float theta = sin( time + position.y * 5.) / 2.0;',
-        'float c = cos( theta );',
-        'float s = sin( theta );',
-        'mat3 m = mat3( c, 0, s, 0, 1, 0, -s, 0, c );',
-        'vec3 transformed = vec3( position ) * m;'
+        'float theta = sin( time + position.z * 5.) / 2.0;',
+        'float stheta = speed/5.;',
+        //'float theta = sin( time * 5.) / 2.0;',
+        'float multi = smoothstep( -0.5 , 0.9, position.z);',
+        'float c = cos( multi * theta );',
+        'float s = sin( multi * theta );',
+        'float sc = cos( 2. * multi * stheta );',
+        'float ss = sin( 2. * multi * stheta );',
+        'mat3 my = mat3( c, 0, s, 0, 1, 0, -s, 0, c );',
+        'mat3 mz = mat3( c, -s, 0, s, c, 0, 0, 0, 1 );',
+        'mat3 smy = mat3( sc, 0, ss, 0, 1, 0, -ss, 0, sc );',
+        'vec3 transformed = vec3( position ) * mz * my * smy;'
       ].join('\n')
     );
     materialShader = shader;
@@ -95,6 +107,7 @@ function init() {
   //controls.update();
 
   window.addEventListener('resize', onWindowResize, false);
+  renderer.domElement.addEventListener('click', onClick, false);
 }
 
 function resizeRendererToDisplaySize(renderer) {
@@ -121,6 +134,7 @@ var animate = function () {
 };
 
 function render() {
+
   camera.position.y = heroPos.posY;
   meObject.rotation.z = heroPos.rotY;
   if (resizeRendererToDisplaySize(renderer)) {
@@ -131,6 +145,7 @@ function render() {
   }
   if (materialShader) {
     materialShader.uniforms.time.value = performance.now() / 1000;
+    materialShader.uniforms.speed.value = speedCalc();
   }
   renderer.render(scene, camera);
 
@@ -146,6 +161,25 @@ function onWindowResize() {
 
     camera.updateProjectionMatrix();
   }
+}
+
+function speedCalc(){
+
+  currentJiggle = lerp(currentJiggle, jiggleInc, 0.1);
+  jiggleInc = jiggleInc * 0.99;
+
+  jiggleDivider = currentJiggle;
+  console.log(jiggleDivider,jiggleInc,currentJiggle);
+  return jiggleDivider;
+}
+
+function onClick(e){
+  console.log("clicked");
+  jiggleInc += 10;
+}
+
+function lerp(v0, v1, t) {
+  return v0*(1-t)+v1*t;
 }
 
 function animateHero(){
