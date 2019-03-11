@@ -19,14 +19,11 @@ function init() {
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
 
   container = document.getElementById('luc-home');
-  //document.body.appendChild( container );
 
   renderer = new THREE.WebGLRenderer({
     canvas: container,
     alpha: true
   });
-  //renderer.setSize(container.innerWidth, container.innerHeight);
-  //container.appendChild(renderer.domElement);
 
   var manager = new THREE.LoadingManager();
   manager.onStart = function (url, itemsLoaded, itemsTotal) {
@@ -64,18 +61,13 @@ function init() {
     shader.vertexShader = shader.vertexShader.replace(
       '#include <begin_vertex>',
       [
-        'float theta = sin( time + position.z * 5.) / 2.0;',
-        'float stheta = speed/5.;',
-        //'float theta = sin( time * 5.) / 2.0;',
+        'float theta = sin( time + speed + position.z * 5.) / 2.0;',
         'float multi = smoothstep( -0.5 , 0.9, position.z);',
         'float c = cos( multi * theta );',
         'float s = sin( multi * theta );',
-        'float sc = cos( 2. * multi * stheta );',
-        'float ss = sin( 2. * multi * stheta );',
         'mat3 my = mat3( c, 0, s, 0, 1, 0, -s, 0, c );',
         'mat3 mz = mat3( c, -s, 0, s, c, 0, 0, 0, 1 );',
-        'mat3 smy = mat3( sc, 0, ss, 0, 1, 0, -ss, 0, sc );',
-        'vec3 transformed = vec3( position ) * mz * my * smy;'
+        'vec3 transformed = vec3( position ) * mz * my;'
       ].join('\n')
     );
     materialShader = shader;
@@ -90,9 +82,6 @@ function init() {
         meObject = child;
         child.material = lucMaterial;
         child.rotation.z = 6.;
-        //child.position.y = - 50;
-
-        //child.scale.setScalar( 100 );
       }
     });
     scene.add(gltf.scene);
@@ -100,11 +89,8 @@ function init() {
     console.error(e);
   });
 
-  //controls = new THREE.OrbitControls(camera);
-
   camera.position.z = 25;
   camera.position.y = heroPos.y;
-  //controls.update();
 
   window.addEventListener('resize', onWindowResize, false);
   renderer.domElement.addEventListener('click', onClick, false);
@@ -114,8 +100,6 @@ function resizeRendererToDisplaySize(renderer) {
   var canvas = renderer.domElement;
   var pixelRatio = window.devicePixelRatio;
   var wrapper = document.getElementById('luc-wrapper');
-  // var width = wrapper.clientWidth * pixelRatio;
-  // var height = wrapper.clientHeight * pixelRatio;
   var width = canvas.clientWidth * pixelRatio;
   var height = canvas.clientHeight * pixelRatio;
   var needResize = canvas.width !== width || canvas.height !== height;
@@ -126,11 +110,8 @@ function resizeRendererToDisplaySize(renderer) {
 }
 
 var animate = function () {
-  //newMaterial.uniforms.timeDelta.value = timeDelta;
-
   requestAnimationFrame(animate);
   render();
-  //controls.update();
 };
 
 function render() {
@@ -154,22 +135,18 @@ function render() {
 animate();
 
 function onWindowResize() {
-  //document.getElementById( 'luc-home' ).style.display = "none";
   if (resizeRendererToDisplaySize(renderer)) {
     var canvas = renderer.domElement;
     camera.aspect = canvas.clientWidth / canvas.clientHeight;
-
     camera.updateProjectionMatrix();
   }
 }
 
 function speedCalc(){
 
-  currentJiggle = lerp(currentJiggle, jiggleInc, 0.1);
+  currentJiggle = lerp(currentJiggle, jiggleInc, 0.01);
   jiggleInc = jiggleInc * 0.99;
-
   jiggleDivider = currentJiggle;
-  console.log(jiggleDivider,jiggleInc,currentJiggle);
   return jiggleDivider;
 }
 
