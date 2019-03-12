@@ -1,6 +1,10 @@
 ---
 layout: default
 title: Luc Palombo - About
+extra_js:
+- assets/js/three.min.js
+- assets/js/GLTFLoader.js
+- assets/js/anime.min.js
 ---
 <div class="light-section">
   {% include navigation.html %}
@@ -23,9 +27,11 @@ title: Luc Palombo - About
       </div>
 
       <div class="flex-column _50">
-        big me go here
+        <canvas id="luc-home"> </canvas>
       </div>
     </div>
   </div>
   {% include footer.html %}
 </div>
+
+<script id="wiggle_script" src="assets/js/wiggle.js" data-animate="false"> </script>

@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: Luc Palombo
 extra_js:
 - assets/js/three.min.js
@@ -9,8 +9,6 @@ extra_js:
 - assets/js/anime.min.js
 - assets/js/noframework.waypoints.min.js
 
-body_js:
-- assets/js/face-home.js
 
 ---
 <div id="loader">
@@ -20,7 +18,7 @@ body_js:
 <div class="hero-section">
   <div id="hero" class="flex-wrapper column fullheight">
     {% include navigation-light.html %}
-    <div class="flex-column nomargin stretch">
+    <div class="flex-column nomargin stretch _100">
       <div class="container hero">
         <div class="flex-wrapper fullheight m-col">
           <div class="flex-column _50">
@@ -99,11 +97,12 @@ body_js:
 </div>
 </div>
 
+<script id="wiggle_script" src="assets/js/wiggle.js" data-animate="true"> </script>
+
 <script>
   var waypoint = new Waypoint({
     element: document.getElementById('windows'),
     handler: function(direction) {
-      console.log("hey");
       anime({
         targets: '#window-me1',
         left: '-10%',

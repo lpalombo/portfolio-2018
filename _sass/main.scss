@@ -325,6 +325,9 @@ figure{
     &._45{
         width: calc(45% - #{$grid-inc});
     }
+    &._100{
+        height: 100%;
+    }
     &.stretch{
         flex-grow: 1;
         &:after{

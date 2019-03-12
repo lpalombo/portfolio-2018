@@ -8,12 +8,21 @@ var jiggleDivider = 0, jiggleInc = 0, jiggleTime = 0, currentJiggle=0;
 
 var heroPos = {
   posY: 100,
-  rotY: 0
+  posZ: 25,
+  rotY: 0,
 };
 
 init();
 
 function init() {
+
+  var script_tag = document.getElementById('wiggle_script');
+  var search_term = script_tag.getAttribute("data-animate");
+
+  if(search_term == "false"){
+    heroPos.posY = 5;
+    heroPos.posZ = 35;
+  }
 
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
@@ -31,7 +40,9 @@ function init() {
   };
   manager.onLoad = function () {
     console.log('Loading complete!');
-    animateHero();
+    if(search_term != "false"){
+      animateHero();
+    }
   };
   manager.onProgress = function (url, itemsLoaded, itemsTotal) {
     console.log('Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
@@ -89,8 +100,8 @@ function init() {
     console.error(e);
   });
 
-  camera.position.z = 25;
-  camera.position.y = heroPos.y;
+  camera.position.z = heroPos.posZ;
+  camera.position.y = heroPos.posY;
 
   window.addEventListener('resize', onWindowResize, false);
   renderer.domElement.addEventListener('click', onClick, false);
@@ -117,7 +128,9 @@ var animate = function () {
 function render() {
 
   camera.position.y = heroPos.posY;
-  meObject.rotation.z = heroPos.rotY;
+  if(meObject){
+    meObject.rotation.z = heroPos.rotY;
+  }
   if (resizeRendererToDisplaySize(renderer)) {
     var canvas = renderer.domElement;
     camera.aspect = canvas.clientWidth / canvas.clientHeight;
@@ -143,7 +156,6 @@ function onWindowResize() {
 }
 
 function speedCalc(){
-
   currentJiggle = lerp(currentJiggle, jiggleInc, 0.01);
   jiggleInc = jiggleInc * 0.99;
   jiggleDivider = currentJiggle;
