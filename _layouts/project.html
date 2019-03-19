@@ -13,6 +13,16 @@ layout: default
     <div class="post">
         <div class="container">
                 {{ content }}
+                <div class="flex-wrapper post m-col">
+                    <div class="flex-column _50 m-margin">
+                        <h3>Skills</h3>
+                        <ul>
+                            {% for skill in page.skills %}
+                            <li class="bullets"><p class="skill">{{skill}}</p></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
         </div>
     </div>
     

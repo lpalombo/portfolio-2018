@@ -6,11 +6,15 @@ images:
 - assets/images/projects/underconstruction_hero.jpg
 description:
     Under Construction is a brutalist website builder for the masses.
+skills:
+- jQuery
+- Sketch
+- Illustrator
 ---
 
 {::options parse_block_html="true" /}
 
-<div class="flex-wrapper m-col">
+<div class="flex-wrapper post m-col">
 <div class="flex-column _50 m-margin">
 Under Construction is a brutalist website builder for the masses.
 
@@ -30,15 +34,11 @@ Through heuristic research, I quickly found that most brutalist websites were fa
     caption="Under Construction product demonstration"
 %}
 
-<div class="flex-wrapper m-col">
+<div class="flex-wrapper post m-col">
 <div class="flex-column _50 m-margin">
 I set out to remedy this problem with a website builder. It’s almost in the same vein as squarespace, but it’s meant to create entirely random brutalist websites, rather than start from templates. The final product is a two step interface. First, edit your content using a medium style WYSIWYG interface, and randomly generate the design on the next page. The finished website can then be downloaded as an archive and uploaded to a service like [NeoCities](https://neocities.org/) for free.
 
 Under Construction’s branding is heavily inspired by early 90s web design. This project is dedicated to all of the people who put a construction worker GIF on their website proudly announcing that their website was [“under construction.”](http://textfiles.com/underconstruction/)
-
-jQuery
-Sketch
-Illustrator
 </div>
 <div class="flex-column _50 m-margin">
 ![Goofy GIFs](/assets/images/projects/underconstruction_gifs.gif)

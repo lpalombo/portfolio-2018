@@ -149,12 +149,41 @@ ul{
             text-decoration: underline;
         }
     }
+    h3{
+        font-size: 1.2em;
+        font-variation-settings: "wdth" 112.5,"wght" 700;
+        color: $primary-color;
+        letter-spacing: -.05rem;
+        margin-bottom: 0px;
+    }
+    .bullets::after{
+        display: block;
+        width: 10px;
+        border-bottom: 1px solid $primary-color;
+    }
     .post{
         padding: $grid-inc 0;
         p{
-            font-variation-settings: "wdth" 100,"wght" 350;
-            letter-spacing: -.025rem;
-            line-height: 2.1rem;
+            font-variation-settings: "wdth" 105,"wght" 350;
+            letter-spacing: 0em;
+            font-size: 1.5em;
+            line-height: 1.75em;
+            &.skill{
+                margin: 0;
+            }
+            a{
+                font-variation-settings: "wdth" 105,"wght" 600;
+                text-decoration: none;
+                color: $primary-color;
+                transition: all .5s;
+                &:hover{
+                    font-variation-settings: "wdth" 105,"wght" 700;
+                    opacity: 0.5;
+                }
+            }
+        }
+        &>.container:first-child{
+            margin-top: 0px;
         }
         @include md{
             padding: calc(#{$grid-inc} / 2) 0;
@@ -168,6 +197,7 @@ ul{
         a{
             font-variation-settings: "wdth" 112.5,"wght" 350;
             text-decoration: underline;
+            line-height: 1.25em;
         }
         &.rightalign{
             text-align: right;
@@ -193,7 +223,7 @@ ul{
     }
 }
 figure{
-    margin: calc(2 * #{$grid-inc}) $grid-space;
+    margin: calc(3 * #{$grid-inc}) $grid-space;
     width: 100%;
     > img{
         width: 100%;
@@ -280,6 +310,7 @@ figure{
     &.regularwidth{
         padding: 0 $grid-space;
     }
+
     @include md{
         &.m-col{
             flex-direction: column;

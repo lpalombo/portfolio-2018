@@ -6,10 +6,14 @@ images:
 - /assets/images/projects/printerboy1.jpg
 description:
     PrinterBoy is a hypothetical product that playfully bridges the gap between the most fun aspects of the digital and print worlds.
+skills:
+- Arduino
+- Sketch
+- After Effects
 ---
 {::options parse_block_html="true" /}
 
-<div class="flex-wrapper m-col">
+<div class="flex-wrapper post m-col">
 <div class="flex-column _50 m-margin">
 PrinterBoy is a hypothetical product that playfully bridges the gap between the most fun aspects of the digital and print worlds.
 
@@ -28,15 +32,11 @@ A companion app lets you treat PrinterBoy like an instant printer, allowing you 
     caption="PrinterBoy product demonstration"
 %}
 
-<div class="flex-wrapper m-col">
+<div class="flex-wrapper post m-col">
 <div class="flex-column _50 m-margin">
 PrinterBoy was heavily inspired by the late [Berg’s](http://berglondon.com/) project [Little Printer](https://vimeo.com/32796535). PrinterBoy improves on the original concept of Little Printer by focusing on the tangibility of paper and how that contributes to the technology’s unique value proposition.
 
 PrinterBoy’s branding also makes references to the [GameBoy Camera](https://www.youtube.com/watch?v=aUbeNmBM8Go), an accessory for the original Nintendo GameBoy that allows users to take photos and print them out on thermal receipt paper.
-
-Arduino
-Sketch
-After Effects
 </div>
 <div class="flex-column _50 m-margin">
 ![PrinterBoy CHIP modules](/assets/images/projects/printouts.jpg)
