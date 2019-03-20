@@ -13,21 +13,33 @@ title: Projects
 
   <div class="container">
     <ul>
-      {% for project in site.posts %}
-      <li class="flex-wrapper marginbottom margintop m-col">
+      {% for project in site.posts reversed%}
+      <li class="flex-wrapper project m-col">
         <div class="flex-column _50">
-          <p class="tags">
-            {% if project.tags.size > 0 %}{{ project.tags | sort | join: " - " }}{% endif %}
-          </p>
-          <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
-          <p class="adjustments notopmargin">{{ project.description }}</p>
+            <div class="flex-wrapper column fullheight">
+                <p class="tags">
+                    {% if project.tags.size > 0 %}{{ project.tags | sort | join: " - " }}{% endif %}
+                </p>
+                <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
+                <p class="adjustments notopmargin">{{ project.description }}</p>
+                <div class="flex-wrapper alignbottom">
+                    <div class="project-buttons">
+                        <a href="{{ project.url }}">View Case Study</a>
+                        {% if project.previewurl %}
+                        <a href="{{ project.previewurl }}" target="_blank">View Project</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="flex-column _50">
-          <div class="image-stack">
-            {% for image in project.images %}
-            <div style="background-image: url('{{ image }}')"></div>
-            {% endfor %}
-          </div>
+            <a href="{{ project.url }}">
+                <div class="image-stack">
+                    {% for image in project.images %}
+                    <div style="background-image: url('{{ image }}')"></div>
+                    {% endfor %}
+                </div>
+            </a>
         </div>
       </li>
       {% endfor %}

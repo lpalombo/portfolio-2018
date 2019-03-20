@@ -1,5 +1,5 @@
 $grid-inc: 54px;
-$grid-space: 27px; 
+$grid-space: 27px;
 $primary-color: #de865e;
 $secondary-color: #eadeb5;
 $highlight: #ffffff;
@@ -36,14 +36,14 @@ $screen-lg-min: 1280px;
         @content;
     }
  }
- 
+
  // Medium devices
  @mixin md {
     @media (max-width: #{$screen-md-min}) {
         @content;
     }
  }
- 
+
  // Large devices
  @mixin lg {
     @media (max-width: #{$screen-lg-min}) {
@@ -67,7 +67,7 @@ ul{
     padding: 0;
 }
 
-// Weight: 300 - 800 Width: 75 - 125 
+// Weight: 300 - 800 Width: 75 - 125
 
 @supports (font-variation-settings: normal) {
     html {
@@ -221,6 +221,39 @@ ul{
             margin-right: 15px;
         }
     }
+    .project-buttons{
+        @include md{
+            padding-bottom: $grid-space;
+        }
+        & > a{
+            //background-color: $secondary-color;
+            border: 1px solid $primary-color;
+            font-size: .75em;
+            padding: .4em .8em;
+            font-family: 'VennVF', sans-serif;
+            font-variation-settings: "wdth" 120,"wght" 500;
+            color: $primary-color;
+            text-decoration: none;
+            //border-radius: .58em;
+            margin-right: .4em;
+            transition: all .2s;
+            transition-property: font-variation-settings, opacity;
+            &:first-child{
+                background-color: $primary-color;
+                color: $highlight;
+
+                &::after{
+                    font-size: .8em;
+
+                    content: " ↗";
+                }
+            }
+            &:hover{
+                opacity: .8;
+                //font-variation-settings: "wdth" 120,"wght" 500;
+            }
+        }
+    }
 }
 figure{
     margin: calc(3 * #{$grid-inc}) $grid-space;
@@ -297,6 +330,16 @@ figure{
     &.margintop{
         margin-top: $grid-inc;
     }
+    &.project{
+        margin-bottom: calc(#{$grid-inc}*2);
+        margin-top: calc(#{$grid-inc}*2);
+        padding-bottom: $grid-space;
+        padding-top: $grid-space;
+        border: 1px solid $primary-color;
+        @include md{
+            margin: $grid-inc $grid-space;
+        }
+    }
     &.fullwidth{
         width: 100%;
     }
@@ -338,7 +381,7 @@ figure{
         &:after{
             content:"";
             display: block;
-            padding-bottom: 100%;   
+            padding-bottom: 100%;
         }
     }
     &._50{
@@ -392,8 +435,8 @@ figure{
         }
     }
 }
-.window-grid{   
-    background: $highlight;   
+.window-grid{
+    background: $highlight;
 }
 .window-parent{
     margin: 0 $grid-space;
@@ -455,7 +498,7 @@ figure{
 
 .preload-wrapper{
     height: 100vh;
-    overflow-x: hidden; 
+    overflow-x: hidden;
     overflow-y: auto;
 }
 
@@ -495,10 +538,12 @@ figure{
     &:after{
         content:"";
         display: block;
-        
+
         padding-bottom: 100%;
     }
 }
+
+
 
 .image-stack{
     position:relative;

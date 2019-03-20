@@ -7,6 +7,7 @@ images:
 - assets/images/projects/cl-logo-2.png
 description:
     Marketing design with a particular focus on the branding and digital presence for Connected, a rapidly growing product development firm in Toronto.
+previewurl: https://connected.io
 skills:
 - jQuery
 - Flexbox

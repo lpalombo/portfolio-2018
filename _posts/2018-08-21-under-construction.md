@@ -6,6 +6,7 @@ images:
 - assets/images/projects/underconstruction_hero.jpg
 description:
     Under Construction is a brutalist website builder for the masses.
+previewurl: http://lucp.xyz/underconstruction
 skills:
 - jQuery
 - Sketch
