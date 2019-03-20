@@ -4,7 +4,7 @@ var meObject;
 
 var materialShader;
 
-var jiggleDivider = 0, jiggleInc = 0, jiggleTime = 0, currentJiggle=0; 
+var jiggleDivider = 0, jiggleInc = 0, jiggleTime = 0, currentJiggle=0;
 
 var heroPos = {
   posY: 100,

@@ -83,7 +83,9 @@ ul{
         letter-spacing: -.2rem;
         line-height: 3.8rem;
         color: $primary-color;
+        margin: $grid-inc 0;
         &.light{
+            margin: 0;
             color: $highlight;
         }
         @include md{
@@ -162,7 +164,7 @@ ul{
         border-bottom: 1px solid $primary-color;
     }
     .post{
-        padding: $grid-inc 0;
+        padding-bottom: $grid-inc;
         p{
             font-variation-settings: "wdth" 105,"wght" 350;
             letter-spacing: 0em;
@@ -225,6 +227,7 @@ ul{
         @include md{
             padding-bottom: $grid-space;
         }
+
         & > a{
             //background-color: $secondary-color;
             border: 1px solid $primary-color;
@@ -244,13 +247,26 @@ ul{
 
                 &::after{
                     font-size: .8em;
-
-                    content: " ↗";
+                    margin-left: 10px;
+                    margin-right: 5px;
+                    content: "↗";
+                    transition: margin .2s;
                 }
             }
             &:hover{
                 opacity: .8;
                 //font-variation-settings: "wdth" 120,"wght" 500;
+                &::after{
+                    margin-left: 15px;
+                    margin-right: 0px;
+                }
+            }
+        }
+        &.inpost{
+            margin: $grid-inc 0;
+            & > a:first-child{
+                background-color: $highlight;
+                color: $primary-color;
             }
         }
     }
@@ -386,6 +402,9 @@ figure{
     }
     &._50{
         width: calc(50% - #{$grid-inc});
+    }
+    &._50nomargin{
+        width: 50%;
     }
     &._25{
         width: calc(25% - #{$grid-inc});
