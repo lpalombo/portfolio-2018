@@ -3,8 +3,8 @@ layout: project
 title: Connected
 tags: [Branding, UI/UX, Development, Motion ]
 images:
-- assets/images/projects/cl-logo-1.png
-- assets/images/projects/cl-logo-2.png
+- cl-logo-1.png
+- cl-logo-2.png
 description:
     Marketing design with a particular focus on the branding and digital presence for Connected, a rapidly growing product development firm in Toronto.
 previewurl: https://connected.io
@@ -33,9 +33,9 @@ Connected’s website and brand went through two design iterations while I was w
 When [Connected](https://www.connected.io/) finally [rebranded in August 2018](http://underlinestudio.com/connected/), I designed the blog, events, careers pages in collaboration with [Underline](http://underlinestudio.com/). Both websites were developed entirely by me in Webflow.
 </div>
 <div class="flex-column _50 m-margin">
-![Connected Lab website careers page](/assets/images/projects/cl-careers.png)
-![Connected website events page](/assets/images/projects/cl-io-events.png)
-![Connected logos](/assets/images/projects/cl-logos.png)
+![Connected Lab website careers page](/assets/images/cl-careers.png)
+![Connected website events page](/assets/images/cl-io-events.png)
+![Connected logos](/assets/images/cl-logos.png)
 </div>
 </div>
 
@@ -53,7 +53,7 @@ At Connected I also spearheaded the creation of a end-to-end design and developm
 I also founded XR Club, a internal cross-disciplinary club meant to bolster the creation of spatial computing projects (AR/VR/MR) at Connected. My role as president was to organize events and speakers, design graphics, and send out communication internally. With XR Club I’ve personally hosted a Unity 101 tutorial and a presentation on traversal in VR, but we’ve also hosted talks on prototyping, XR build pipelines, and more.
 </div>
 <div class="flex-column _50 m-margin">
-![Working prototype of the Wild Combination Digital project](/assets/images/projects/cl-wildcombo2.png)
-![XR Club posters](/assets/images/projects/xr-club.jpg)
+![Working prototype of the Wild Combination Digital project](/assets/images/cl-wildcombo2.png)
+![XR Club posters](/assets/images/xr-club.jpg)
 </div>
 </div>

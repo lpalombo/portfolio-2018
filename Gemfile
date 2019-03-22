@@ -30,3 +30,14 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Performance-booster for watching directories on Windows
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
+#Lazy loader
+group :jekyll_plugins do
+  gem 'jekyll-lazy-load-image', require: 'jekyll-lazy-load-image/auto-execution'
+end
+
+#Jekyll Assets
+gem "jekyll-assets", group: :jekyll_plugins
+
+group :jekyll_plugins do
+  gem 'jekyll-picture-tag', git: 'https://github.com/robwierzbowski/jekyll-picture-tag/'
+end

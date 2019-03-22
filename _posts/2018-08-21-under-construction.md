@@ -3,7 +3,7 @@ layout: project
 title: Under Construction
 tags: [ UI/UX, Development]
 images:
-- assets/images/projects/underconstruction_hero.jpg
+- underconstruction_hero.jpg
 description:
     Under Construction is a brutalist website builder for the masses.
 previewurl: http://lucp.xyz/underconstruction
@@ -26,7 +26,7 @@ Today's websites are too boring, too unoriginal, and too perfectly user-friendly
 Through heuristic research, I quickly found that most brutalist websites were far more complicated than their “simple” design would have you believe. Many used custom javascript and unconventional css styling techniques that would be far beyond what an average beginner developer could do in a reasonable timeframe. However, many of the websites were for things that creatives may want to create, like art or music portfolios, event pages, and product demonstrations.
 </div>
 <div class="flex-column _50 m-margin">
-![Under Construction splash screen](/assets/images/projects/underconstruction_splash.png)
+{% picture /assets/images/underconstruction_splash.png --alt Under Construction splash screen %}
 </div>
 </div>
 
@@ -42,6 +42,6 @@ I set out to remedy this problem with a website builder. It’s almost in the sa
 Under Construction’s branding is heavily inspired by early 90s web design. This project is dedicated to all of the people who put a construction worker GIF on their website proudly announcing that their website was [“under construction.”](http://textfiles.com/underconstruction/)
 </div>
 <div class="flex-column _50 m-margin">
-![Goofy GIFs](/assets/images/projects/underconstruction_gifs.gif)
+![Goofy GIFs](/assets/images/underconstruction_gifs.gif)
 </div>
 </div>

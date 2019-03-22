@@ -3,7 +3,7 @@ layout: project
 title: PrinterBoy
 tags: [ UI/UX, Branding]
 images:
-- /assets/images/projects/printerboy1.jpg
+- printerboy1.jpg
 description:
     PrinterBoy is a hypothetical product that playfully bridges the gap between the most fun aspects of the digital and print worlds.
 skills:
@@ -22,8 +22,8 @@ It takes the form of a small internet-connected thermal receipt printer that spi
 A companion app lets you treat PrinterBoy like an instant printer, allowing you to send customized selfies and images to your friends around the globe. PrinterBoy is designed to be a system that can grow and adapt to a community of developers and makers.
 </div>
 <div class="flex-column _50 m-margin">
-![PrinterBoy app homescreen](/assets/images/projects/reorder.jpg)
-![3D mockup of PrinterBoy](/assets/images/projects/printerboy1.jpg)
+{% picture /assets/images/reorder.jpg --alt PrinterBoy app homescreen %}
+{% picture /assets/images/printerboy1.jpg --alt 3D mockup of PrinterBoy %}
 </div>
 </div>
 
@@ -39,7 +39,7 @@ PrinterBoy was heavily inspired by the late [Berg’s](http://berglondon.com/) p
 PrinterBoy’s branding also makes references to the [GameBoy Camera](https://www.youtube.com/watch?v=aUbeNmBM8Go), an accessory for the original Nintendo GameBoy that allows users to take photos and print them out on thermal receipt paper.
 </div>
 <div class="flex-column _50 m-margin">
-![PrinterBoy CHIP modules](/assets/images/projects/printouts.jpg)
-![The PrinterBoy logo adapts to different scales](/assets/images/projects/logos.jpg)
+{% picture /assets/images/printouts.jpg --alt PrinterBoy CHIP modules %}
+{% picture /assets/images/logos.jpg --alt The PrinterBoy logo adapts to different scales %}
 </div>
 </div>

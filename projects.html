@@ -36,7 +36,7 @@ title: Projects
             <a href="{{ project.url }}">
                 <div class="image-stack">
                     {% for image in project.images %}
-                    <div style="background-image: url('{{ image }}')"></div>
+                    <div style="background-image: url('{{image | asset:"@path"}}');"></div>
                     {% endfor %}
                 </div>
             </a>
