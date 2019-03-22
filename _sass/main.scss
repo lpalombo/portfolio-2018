@@ -552,6 +552,7 @@ figure{
 }
 
 .smallbox{
+    position: relative;
     background-color: $secondary-color;
     flex-basis: 71.45%;
     &:after{
@@ -560,6 +561,18 @@ figure{
 
         padding-bottom: 100%;
     }
+}
+
+#smallbox-me{
+    position: absolute;
+    right: 0; bottom: 0;
+    top: -50px;
+    left: -50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: bottom 1800%;
+    background-image: url('/assets/images/smallme.png');
 }
 
 

@@ -1,6 +1,9 @@
 ---
 layout: default
 title: Projects
+extra_js:
+- assets/js/anime.min.js
+- assets/js/noframework.waypoints.min.js
 ---
 <div class="highlight-section">
   {% include navigation.html %}
@@ -68,7 +71,7 @@ title: Projects
       <div class="flex-column _33 m-hide">
         <div class="flex-wrapper fullheight alignbottom">
           <div class="flex-wrapper fullwidth rowreverse">
-            <div class="smallbox"></div>
+            <div class="smallbox" id="test"><div id="smallbox-me"></div></div>
           </div>
         </div>
       </div>
@@ -76,6 +79,19 @@ title: Projects
   </div>
   {% include footer.html %}
 </div>
+
+<script>
+  var waypoint = new Waypoint({
+    element: document.getElementById('test'),
+    handler: function(direction) {
+      anime({
+        targets: '#smallbox-me',
+        backgroundPositionY: "-700%",
+        duration: 3000
+      });
+    }, offset: '50%'
+  });
+</script>
 
 <script>
     //todo: do something with this code
