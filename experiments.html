@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Projects
+title: Experiments
 extra_js:
 - assets/js/anime.min.js
 - assets/js/noframework.waypoints.min.js
@@ -20,6 +20,7 @@ extra_js:
         <div class="flex-column experiment">
             <a href="{{ experiment.url }}">
                 <img src="{{experiment.image | asset:"@path"}}"></img>
+                <p>{{ experiment.title }}</p>
             </a>
         </div>
         {% endfor %}

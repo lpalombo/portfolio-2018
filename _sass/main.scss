@@ -430,6 +430,18 @@ figure{
     }
     &.experiment{
         flex: 3;
+        transition: opacity .5s;
+        & > a{
+            text-decoration: none;
+        }
+
+        & > a > p {
+            font-size: 1em;
+            text-decoration: none;
+        }
+        & :hover {
+            opacity: .8;
+        }
     }
     &.stretch{
         flex-grow: 1;
