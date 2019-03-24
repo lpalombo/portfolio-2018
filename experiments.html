@@ -1,0 +1,29 @@
+---
+layout: default
+title: Projects
+extra_js:
+- assets/js/anime.min.js
+- assets/js/noframework.waypoints.min.js
+---
+<div class="highlight-section">
+  {% include navigation.html %}
+
+  <div class="container">
+      <div class="flex-column">
+          <h1>Experiments</h1>
+      </div>
+  </div>
+
+  <div class="container">
+      <div class="flex-wrapper experiments">
+        {% for experiment in site.categories.experiments%}
+        <div class="flex-column experiment">
+            <a href="{{ experiment.url }}">
+                <img src="{{experiment.image | asset:"@path"}}"></img>
+            </a>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+  {% include footer.html %}
+</div>

@@ -356,6 +356,11 @@ figure{
             margin: $grid-inc $grid-space;
         }
     }
+    &.experiments{
+        flex-flow: row wrap;
+        align-content: flex-start;
+        align-items: center;
+    }
     &.fullwidth{
         width: 100%;
     }
@@ -379,6 +384,8 @@ figure{
         }
     }
 }
+
+
 
 .flex-grow{
     flex-grow: 1;
@@ -420,6 +427,9 @@ figure{
     }
     &._100{
         height: 100%;
+    }
+    &.experiment{
+        flex: 3;
     }
     &.stretch{
         flex-grow: 1;
@@ -590,6 +600,7 @@ figure{
         left: 0; right: 0; top: 0; bottom: 0;
     }
 }
+
 
 .adjustments{
     &.notopmargin{

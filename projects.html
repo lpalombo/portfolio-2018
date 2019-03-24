@@ -16,7 +16,7 @@ extra_js:
 
   <div class="container">
     <ul>
-      {% for project in site.posts reversed%}
+      {% for project in site.categories.projects reversed %}
       <li class="flex-wrapper project m-col">
         <div class="flex-column _50">
             <div class="flex-wrapper column fullheight">
@@ -56,9 +56,9 @@ extra_js:
       <p>Projects created to experiment with new technology</p>
     </div>
     <div class="flex-wrapper regularwidth">
-      <div class="flex-column nomargin stretch highlightbox square"></div>
-      <div class="flex-column nomargin stretch highlightbox square"></div>
-      <div class="flex-column nomargin stretch highlightbox square"></div>
+      {% for experiment in site.categories.experiments limit: 3 %}
+      <div class="flex-column nomargin stretch highlightbox square" style="background-image: url('{{experiment.image | asset:"@path"}}');"></div>
+      {% endfor %}
     </div>
   </div>
 </div>
