@@ -54,10 +54,13 @@ extra_js:
     <div class="flex-column">
       <h2><a href="/experiments.html">Experiments</a></h2>
       <p>Projects created to experiment with new technology</p>
+      <div class="project-buttons marginbelow">
+          <a href="/experiments.html">View Experiments</a>
+      </div>
     </div>
-    <div class="flex-wrapper regularwidth">
+    <div class="flex-wrapper">
       {% for experiment in site.categories.experiments limit: 3 %}
-      <div class="flex-column nomargin stretch highlightbox square" style="background-image: url('{{experiment.image | asset:"@path"}}');"></div>
+      <div class="flex-column stretch highlightbox square centerbg" style="background-image: url('{{experiment.image | asset:"@path"}}');"></div>
       {% endfor %}
     </div>
   </div>

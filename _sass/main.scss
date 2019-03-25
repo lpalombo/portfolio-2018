@@ -269,6 +269,9 @@ ul{
                 color: $primary-color;
             }
         }
+        &.marginbelow{
+            margin-bottom: $grid-inc;
+        }
     }
 }
 figure{
@@ -431,6 +434,10 @@ figure{
     &.experiment{
         flex: 3;
         transition: opacity .5s;
+        min-width: 300px;
+        & > a > img{
+            width: 100%;
+        }
         & > a{
             text-decoration: none;
         }
@@ -453,6 +460,13 @@ figure{
         background-color: $highlight;
         display: block;
         position: relative;
+    }
+    &.centerbg{
+        background-position: center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
     }
     @include md{
         &._50{
