@@ -468,6 +468,9 @@ figure{
         -o-background-size: cover;
         background-size: cover;
     }
+    & > video{
+        width: 100%;
+    }
     @include md{
         &._50{
             width: calc(100% - #{$grid-inc});

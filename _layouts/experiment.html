@@ -18,16 +18,6 @@ layout: default
     <div class="post">
         <div class="container">
                 {{ content }}
-                <div class="flex-wrapper post m-col">
-                    <div class="flex-column _50 m-margin">
-                        <h3>Skills</h3>
-                        <ul>
-                            {% for skill in page.skills %}
-                            <li class="bullets"><p class="skill">{{skill}}</p></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
         </div>
     </div>
 
@@ -35,8 +25,8 @@ layout: default
         <div class="flex-wrapper">
             <div class="flex-column _50">
                 <div class="pages">
-                    {% if page.projects.previous.url %}
-                    <p>Previous Project</p>
+                    {% if page.previous.url %}
+                    <p>Previous Experiment</p>
                     <p><a href="{{page.previous.url}}">{{page.previous.title}}</a></p>
                     {% endif %}
                 </div>
@@ -44,8 +34,8 @@ layout: default
             <div class="flex-column _50">
                 <div class="flex-wrapper rowreverse">
                     <div class="pages rightalign">
-                        {% if page.projects.next.url %}
-                        <p>Next Project</p>
+                        {% if page.next.url %}
+                        <p>Next Experiment</p>
                         <p><a href="{{page.next.url}}">{{page.next.title}}</a></p>
                         {% endif %}
                     </div>
