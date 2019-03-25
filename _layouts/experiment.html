@@ -25,18 +25,18 @@ layout: default
         <div class="flex-wrapper">
             <div class="flex-column _50">
                 <div class="pages">
-                    {% if page.previous.url %}
+                    {% if page.previous_in_category != nil %}
                     <p>Previous Experiment</p>
-                    <p><a href="{{page.previous.url}}">{{page.previous.title}}</a></p>
+                    <p><a href="{{ page.previous_in_category.url }}">{{ page.previous_in_category.title }}</a></p>
                     {% endif %}
                 </div>
             </div>
             <div class="flex-column _50">
                 <div class="flex-wrapper rowreverse">
                     <div class="pages rightalign">
-                        {% if page.next.url %}
+                        {% if page.next_in_category != nil %}
                         <p>Next Experiment</p>
-                        <p><a href="{{page.next.url}}">{{page.next.title}}</a></p>
+                        <p><a href="{{ page.next_in_category.url }}">{{ page.next_in_category.title }}</a></p>
                         {% endif %}
                     </div>
                 </div>

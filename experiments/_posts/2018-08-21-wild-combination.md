@@ -3,6 +3,9 @@ layout: experiment
 title: Wild Combination Digital
 image: ex-wildcombo.gif
 previewurl: http://cl-wildcombination.netlify.com
+pagination:
+  enabled: true
+  collection: experiments
 ---
 
 {::options parse_block_html="true" /}
