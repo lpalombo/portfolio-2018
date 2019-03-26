@@ -19,8 +19,6 @@ skills:
 <div class="flex-column _50 m-margin">
 Under Construction is a brutalist website builder for the masses.
 
-Note to self: add a preview project button to both the projects page and this template
-
 Today's websites are too boring, too unoriginal, and too perfectly user-friendly. There is (was?) a growing movement of creatives that showcase their work with websites that are the exact opposite: wild and original user-UNfriendly experiences, using harsh typography and colours, often called [brutalist websites](https://brutalistwebsites.com/).
 
 Through heuristic research, I quickly found that most brutalist websites were far more complicated than their “simple” design would have you believe. Many used custom javascript and unconventional css styling techniques that would be far beyond what an average beginner developer could do in a reasonable timeframe. However, many of the websites were for things that creatives may want to create, like art or music portfolios, event pages, and product demonstrations.
