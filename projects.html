@@ -2,8 +2,8 @@
 layout: default
 title: Projects
 extra_js:
-- assets/js/anime.min.js
-- assets/js/noframework.waypoints.min.js
+- /assets/js/anime.min.js
+- /assets/js/noframework.waypoints.min.js
 ---
 <div class="highlight-section">
   {% include navigation.html %}
@@ -26,7 +26,7 @@ extra_js:
                 <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
                 <p class="adjustments notopmargin">{{ project.description }}</p>
                 <div class="flex-wrapper alignbottom">
-                    <div class="project-buttons">
+                    <div class="project-buttons l-marginbelow">
                         <a href="{{ project.url }}">View Case Study</a>
                         {% if project.previewurl %}
                         <a href="{{ project.previewurl }}" target="_blank">Launch Project</a>

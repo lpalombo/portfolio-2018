@@ -20,7 +20,10 @@ extra_js:
         <div class="flex-column experiment">
             <a href="{{ experiment.url }}">
                 <img src="{{experiment.image | asset:"@path"}}"></img>
-                <p>{{ experiment.title }}</p>
+                <div>
+                    <p>{{ experiment.title }}</p>
+                    <p>{{ experiment.date | date: "%B %Y"}}</p>
+                </div>
             </a>
         </div>
         {% endfor %}

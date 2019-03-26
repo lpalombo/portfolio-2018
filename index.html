@@ -17,15 +17,17 @@ extra_js:
 <div class="preload-wrapper">
 <div class="hero-section">
   <div id="hero" class="flex-wrapper column fullheight">
+    <div style="position: relative; z-index: 99999">
     {% include navigation-light.html %}
+    </div>
     <div class="flex-column nomargin stretch _100">
       <div class="container hero">
         <div class="flex-wrapper fullheight m-col">
-          <div class="flex-column _50">
+          <div class="flex-column _50 stretch m-highz">
             <div class="flex-wrapper column fullheight">
               <h1 class="light">Luc Palombo</h1>
               <div class="flex-wrapper alignbottom">
-                <ul class="links light">
+                <ul class="links light m-hide">
                     {% for item in site.data.social %}
                       <li><a href="{{ item.link }}">{{ item.name }}</a></li>
                     {% endfor %}
@@ -34,7 +36,7 @@ extra_js:
             </div>
           </div>
 
-          <div id="luc-wrapper" class="flex-column _50 highlightbox">
+          <div class="flex-column _50 highlightbox home-lukey">
             <div id="luc-wrappy">
                 <canvas id="luc-home"> </canvas>
             </div>
@@ -51,7 +53,7 @@ extra_js:
       <div class="window-grid">
         <img src="assets/images/me.png" id="window-me1"/>
         <img src="assets/images/me.png" id="window-me2" />
-        <div class="window-row">
+        <div class="window-row m-hide">
             <div class="window-col open">
               <div class="window-openbox square"></div>
             </div>
@@ -68,18 +70,18 @@ extra_js:
               <div class="window-openbox square"></div>
             </div>
         </div>
-        <div class="window-line"></div>
+        <div class="window-line m-hide"></div>
         <div class="window-row">
-            <div class="window-col open">
+            <div class="window-col open m-hide">
               <div class="window-openbox square"></div>
               <div class="window-openbox fill"></div>
             </div>
-            <div class="window-col closed"></div>
-            <div class="window-col open">
+            <div class="window-col closed m-hide"></div>
+            <div class="window-col open m-hide">
                 <div class="window-openbox square"></div>
                 <div class="window-openbox fill"></div>
             </div>
-            <div class="window-col closed"></div>
+            <div class="window-col closed m-hide"></div>
             <div class="window-col text">
               <p>Designer and creative technologist based in Toronto, Ontario.</p>
 

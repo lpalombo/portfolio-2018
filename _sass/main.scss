@@ -74,7 +74,7 @@ ul{
         font-family: 'VennVF', sans-serif;
         font-variation-settings: "wdth" 100;
         @include sm{
-            font-size: 12px;
+            font-size: 14px;
         }
     }
     h1{
@@ -90,6 +90,8 @@ ul{
         }
         @include md{
             margin: calc(#{$grid-inc} / 2) 0;
+            font-size: 2.6em;
+            line-height: 1em;
         }
     }
     .links{
@@ -107,6 +109,12 @@ ul{
         }
         &.light a{
             color: $highlight;
+        }
+        @include md{
+            margin-bottom: $grid-space;
+            &.m-hide{
+                display: none;
+            }
         }
     }
     p{
@@ -178,6 +186,7 @@ ul{
                 text-decoration: none;
                 color: $primary-color;
                 transition: all .5s;
+                transition-property: opacity, font-variation-settings;
                 &:hover{
                     font-variation-settings: "wdth" 105,"wght" 700;
                     opacity: 0.5;
@@ -188,13 +197,18 @@ ul{
             margin-top: 0px;
         }
         @include md{
-            padding: calc(#{$grid-inc} / 2) 0;
+
+            padding-bottom: calc(#{$grid-inc} / 2) 0;
         }
     }
     .pages{
-        line-height: .3rem;
+        line-height: .3em;
         p{
             font-variation-settings: "wdth" 112.5,"wght" 700;
+            line-height: 1em;
+            &:first-child{
+                margin-bottom: 5px;
+            }
         }
         a{
             font-variation-settings: "wdth" 112.5,"wght" 350;
@@ -204,6 +218,9 @@ ul{
         &.rightalign{
             text-align: right;
         }
+        @include md{
+            font-size: .8em;
+        }
     }
     .tags{
         font-size: 1.25rem;
@@ -211,10 +228,14 @@ ul{
         margin-bottom: .8rem;
     }
     .navlink{
-        margin-left: 15px;
+        //font-size: .9em;
+        margin-left: 20px;
         &.current{
             font-variation-settings: "wdth" 112.5,"wght" 500;
             letter-spacing: -.05rem;
+        }
+        @include md{
+            font-size: .75em;
         }
     }
     @include md{
@@ -224,9 +245,7 @@ ul{
         }
     }
     .project-buttons{
-        @include md{
-            padding-bottom: $grid-space;
-        }
+
 
         & > a{
             //background-color: $secondary-color;
@@ -268,9 +287,17 @@ ul{
                 background-color: $highlight;
                 color: $primary-color;
             }
+            @include md{
+                margin: $grid-space 0;
+            }
         }
         &.marginbelow{
             margin-bottom: $grid-inc;
+        }
+        @include md{
+            &.l-marginbelow{
+                margin-bottom: $grid-space;
+            }
         }
     }
 }
@@ -431,10 +458,18 @@ figure{
     &._100{
         height: 100%;
     }
+
     &.experiment{
+        border: 1px solid $primary-color;
+        background-color: $highlight;
+        padding: 15px;
         flex: 3;
-        transition: opacity .5s;
         min-width: 300px;
+        margin-bottom: $grid-inc;
+        transition: opacity .2s;
+        &:hover{
+            opacity: .8;
+        }
         & > a > img{
             width: 100%;
         }
@@ -442,12 +477,18 @@ figure{
             text-decoration: none;
         }
 
-        & > a > p {
-            font-size: 1em;
+        & > a > div > p {
+            font-size: 1.4em;
             text-decoration: none;
+            margin: 0px;
+            &:nth-child(2){
+                font-size: .85em;
+                margin-top: 6px;
+            }
         }
-        & :hover {
-            opacity: .8;
+        & a > div{
+            margin-top: 15px;
+            margin-bottom: 5px;
         }
     }
     &.stretch{
@@ -471,6 +512,11 @@ figure{
     & > video{
         width: 100%;
     }
+    @include lg{
+        &._l-33{
+            width: calc(33.333% - #{$grid-inc});
+        }
+    }
     @include md{
         &._50{
             width: calc(100% - #{$grid-inc});
@@ -491,6 +537,18 @@ figure{
             margin-top: calc(#{$grid-space}/2);
             margin-bottom: calc(#{$grid-space}/2);
         }
+        &.home-lukey{
+            width: 100%;
+            position: absolute;
+            margin: 0;
+            left: 0; right: 0; top: 0; bottom: 0;
+            background-color: transparent;
+        }
+        &.m-highz{
+            position: relative;
+            z-index: 999999;
+            pointer-events: none;
+        }
     }
 }
 .window-grid{
@@ -503,12 +561,22 @@ figure{
 }
 .window-row{
     display: flex;
+    @include md{
+        &.m-hide{
+            display: none;
+        }
+    }
 }
 .window-line{
     height: $grid-inc;
     background: $secondary-color;
     position: relative;
     z-index: 20;
+    @include md{
+        &.m-hide{
+            display: none;
+        }
+    }
 }
 .window-col{
     position: relative;
@@ -530,6 +598,14 @@ figure{
         width: calc(50% - #{$grid-space});
         background-color: $secondary-color;
     }
+    @include md{
+        &.m-hide{
+            display: none;
+        }
+        &.text{
+            width:100%;
+        }
+    }
 }
 .window-openbox{
     &.square{
@@ -546,12 +622,18 @@ figure{
     left: -100%;
     top: -100px;
     width: 600px;
+    @include md{
+        display: none;
+    }
 }
 #window-me2{
     position: absolute;
     right: -20%;
     top: 100%;
     width: 500px;
+    @include md{
+        display: none;
+    }
 }
 
 .preload-wrapper{
@@ -649,7 +731,9 @@ figure{
 #luc-wrappy{
     position: absolute;
     top: 0px; bottom: 0px; right: 0px; left: -300px;
-
+    @include md{
+        left: 0px;
+    }
 }
 
 #luc-home{

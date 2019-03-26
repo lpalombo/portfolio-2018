@@ -1,6 +1,6 @@
 ---
 layout: experiment
-title: Dumb Tech Deck Fidget Spinner
+title: A Fidget Spinner?
 image: ex-fidgetspinner.gif
 ---
 
