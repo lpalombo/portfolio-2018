@@ -5,6 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    {% include favicon.html %}
     {% for js_name in page.extra_js %}
       <script src="{{ js_name }}"></script>
     {% endfor %}
