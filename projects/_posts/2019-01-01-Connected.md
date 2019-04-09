@@ -44,7 +44,7 @@ When [Connected](https://www.connected.io/) finally [rebranded in August 2018](h
 %}
 {% include caption-misc.html
     code="<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://player.vimeo.com/video/306254931?api=1&background=1&autoplay=1&loop=1&autopause=0&muted=1' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>"
-    caption="I animated these spot illustrations done by Christopher DeLorenzo"
+    caption="I animated these spot illustrations originally created by Christopher DeLorenzo"
 %}
 
 <div class="flex-wrapper post m-col">

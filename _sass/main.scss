@@ -335,6 +335,9 @@ figure{
         height: 100%;
         padding-top: $grid-inc;
         padding-bottom: calc(#{$grid-inc} * 2);
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
     &.nav{
         padding-top: $grid-inc;
@@ -365,6 +368,9 @@ figure{
     }
     &.fullheight{
         height: 100%;
+    }
+    &.flexstretch{
+        flex-grow: 1;
     }
     &.alignbottom{
         flex-grow: 1;
@@ -458,7 +464,10 @@ figure{
     &._100{
         height: 100%;
     }
-
+    &.and-flex-wrapper-column{
+        display: flex;
+        flex-direction: column;
+    }
     &.experiment{
         border: 1px solid $primary-color;
         background-color: $highlight;
