@@ -6,7 +6,7 @@ images:
 - underconstruction_hero.jpg
 description:
     Under Construction is a brutalist website builder for the masses.
-previewurl: http://lucp.xyz/underconstruction
+previewurl: https://under-construction.neocities.org/
 skills:
 - jQuery
 - Sketch
